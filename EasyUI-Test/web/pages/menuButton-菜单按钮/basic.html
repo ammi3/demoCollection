@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单按钮</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <a href="#" class="easyui-menubutton" data-options="iconCls:'icon-add',menu:'#mm1'">Add</a>
+    <a href="#" class="easyui-menubutton" data-options="iconCls:'icon-help',menu:'#mm2'">Help</a>
+
+    <div id="mm1" class="easyui-menu" style="width: 120px">
+        <div>New</div>
+        <div>Save</div>
+        <div>Exit</div>
+    </div>
+
+    <div id="mm2" class="easyui-menu" style="width: 120px">
+        <div data-options="iconCls:'icon-add',name:'new'">New</div>
+        <div data-options="iconCls:'icon-save',name:'save'">Save</div>
+        <div>Exit</div>
+    </div>
+</body>
+</html>

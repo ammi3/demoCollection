@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <div class="easyui-pagination" data-options="total:100,pageList:[10,25,50,100],
+    buttons:[{iconCls:'icon-add',handler:function(){alert('add')}}]"></div>
+
+    <div id="page"></div>
+    <script type="text/javascript">
+        $(function () {
+            $("#page").pagination({
+                total: 100,
+                pageList: [10,25,50],
+                layout:['list','first','links','last'],
+                buttons: [{
+                    iconCls: 'icon-add', handler: function () {
+                        alert('add')
+                    },
+                }, {
+                    iconCls:'icon-save', handler:function() {
+                        alert('save')
+                    }
+                }]
+            })
+        })
+    </script>
+</body>
+</html>

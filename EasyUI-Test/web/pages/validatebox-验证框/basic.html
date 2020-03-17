@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证框</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div>
+        必填<input class="easyui-validatebox" data-options="required:true,validType:'length[3,10]'" name="username"/>
+    </div>
+    <div>
+        邮箱<input class="easyui-validatebox" data-options="required:true,validType:'email'" name="email"/>
+    </div>
+    <div>
+        网址<input class="easyui-validatebox" data-options="required:true,validType:'url'" name="url"/>
+    </div>
+
+    <div>
+        Js<input id="vv"/>
+    </div>
+    <div>
+        密码<input id="pwd" class="easyui-validatebox" data-options="required:true"/>
+    </div>
+    <div>
+        确认密码<input class="easyui-validatebox" data-options="required:true" validType="equals['#pwd']"/>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#vv").validatebox({
+                required: true,
+                validType: 'email'
+            });
+            $.extend($.fn.validatebox.defaults.rules, {
+                equals: {
+                    validator: function (value,param) {
+                        return value == $(param[0]).val();
+                    },
+                    message:'field do not match'
+                }
+            })
+        })
+    </script>
+</body>
+</html>

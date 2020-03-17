@@ -1,0 +1,20 @@
+[
+  {
+    "text": "Item1"
+  },
+  {
+    "text": "Item2"
+  },
+  {
+    "text": "Item3",
+    "state": "closed",
+    "children": [
+      {
+        "text": "Item3-1"
+      },
+      {
+        "text": "Item3-2"
+      }
+    ]
+  }
+]

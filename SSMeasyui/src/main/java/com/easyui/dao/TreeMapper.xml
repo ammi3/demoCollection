@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.TreeDAO">
+
+    <resultMap id="treeMap" type="TreeNode">
+        <id property="id" column="ID"></id>
+        <result property="text" column="TEXT"></result>
+        <result property="parentId" column="PARENT_ID"></result>
+    </resultMap>
+
+    <select id="getTreeNodes" resultMap="treeMap">
+        select ID,TEXT,PARENT_ID from TREE
+    </select>
+
+    <insert id="addTree" parameterType="TreeNode" useGeneratedKeys="true" keyProperty="id">
+        insert into TREE(TEXT,PARENT_ID) value (#{text},#{parentid})
+    </insert>
+
+    <update id="updateTree" parameterType="TreeNode">
+        update TREE set TEXT=#{text},PARENT_ID=#{parentid} where ID=#{id}
+    </update>
+
+    <update id="updateParentid" parameterType="int">
+        update TREE set PARENT_ID = null  where PARENT_ID=#{parentid}
+    </update>
+
+    <delete id="deleteTree" parameterType="int">
+        delete from TREE where ID=#{id}
+    </delete>
+</mapper>

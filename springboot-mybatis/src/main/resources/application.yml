@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://116.62.25.133:3306/myshop?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: 用户名
+      password: 密码
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.demo.sprintboot.entity
+  mapper-locations: classpath:mapper/*.xml

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面板</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div class="easyui-panel" style="width: 300px;height: 500px" data-options="title:'标题',iconCls:'icon-save'">
+        <p>基础面板</p>
+    </div>
+
+    <div class="easyui-panel" style="width: 400px" data-options="title:'属性',collapsible:true,maximizable:true,
+    closable:true,tools:'#tools',footer:'#footer'">
+        <p>面板属性</p>
+    </div>
+
+    <div id="tools">
+        <a href="#" class="icon-add" onclick="javascript:alert('add')"></a>
+        <a href="#" class="icon-edit" onclick="javascript:alert('edit')"></a>
+    </div>
+
+    <div id="footer">
+        我是底部
+    </div>
+
+    <div class="easyui-panel" style="width: 400px" data-options="href:'dynamic.html'">
+
+    </div>
+</body>
+</html>

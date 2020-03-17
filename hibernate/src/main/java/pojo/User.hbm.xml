@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!--类和表的映射-->
+    <class name="pojo.User" table="user">
+        <!--必须有主键：对象和行关联，唯一标识-->
+        <id name="id" column="id">
+            <!--主键生成方式-->
+            <!--主键生成方式为identity是自增长方式-->
+            <generator class="identity"></generator>
+        </id>
+
+        <!--属性映射-->
+        <property name="username" column="username"></property>
+        <property name="password" column="password"></property>
+    </class>
+</hibernate-mapping>

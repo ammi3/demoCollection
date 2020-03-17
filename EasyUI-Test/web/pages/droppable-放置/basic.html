@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放置</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <style type="text/css">
+        .drags {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            border: 1px solid #ccc;
+        }
+        .container, #drop {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            float: left;
+            margin: 5px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="drags" id="drag1">drag1</div>
+        <div class="drags" id="drag2">drag2</div>
+        <div class="drags" id="drag3">drag3</div>
+    </div>
+    <!--放置目标的容器-->
+    <div id="drop"></div>
+    <script type="text/javascript">
+        $(".drags").draggable({
+           proxy:"clone",
+           revert:true
+        });
+        $("#drop").droppable({
+            accept:"#drag1,#drag3",
+            onDragEnter:function (e,source) {
+                $(source).draggable("options").cursor = "pointer";
+                $(source).draggable("proxy").css("border","1px solid red")
+            },
+            onDragLeave:function (e,source) {
+                $(source).draggable("options").cursor = "no-drop";
+                $(source).draggable("proxy").css("border","1px solid #ccc")
+            },
+            onDrop: function (e,source) {
+                $(this).append(source);
+            }
+        })
+    </script>
+</body>
+</html>

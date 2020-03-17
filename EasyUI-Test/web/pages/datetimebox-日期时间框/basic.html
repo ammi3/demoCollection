@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期时间框</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <input class="easyui-datetimebox" style="width: 200px" data-options="showSeconds:false"/>
+    <input id="dd" style="width: 200px"/>
+    <script type="text/javascript">
+        $(function () {
+            $("#dd").datetimebox({
+                value:"2019/08/09 10:21:34",
+                formatter: function (date) {
+                    return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getData()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+                },
+                parser: function (s) {
+                    if(!s) return new Date();
+                    var arr = (s.split(" "));
+                    var ss = (arr[0].split("-"));
+                    var y = parseInt(ss[0],10);
+                    var m = parseInt(ss[1],10);
+                    var d = parseInt(ss[2],10);
+                    var ss2 = arr[1].split(":");
+                    var h = parseInt(ss2[0],10)
+                    var mm = parseInt(ss2[0],10)
+                    var second = parseInt(ss2[0],10)
+                    if(!isNaN(y)&&!isNaN(m)&&isNaN(d)&&isNaN(h)&&isNaN(mm)&&isNaN(second)) {
+                        return new Date(y,m-1,d);
+                    } else {
+                        return new Date();
+                    }
+                }
+            });
+        })
+    </script>
+</body>
+</html>

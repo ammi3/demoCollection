@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对话框</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div class="easyui-dialog" title="My Title" style="width: 300px;height: 400px"
+    data-options="toolbar:[
+    {
+        iconCls: 'icon-add',
+        text: 'Add',
+        handler: function() {
+        alert('add')
+        }
+    }, '-' ,{
+        iconCls: 'icon-save',
+        text: 'Save',
+        handler: function() {
+        alert('save')
+        }
+    }
+    ],buttons:[{
+        iconCls: 'icon-ok',
+        text: 'OK',
+        handler: function() {
+        alert('OK')
+        }
+    },{
+        iconCls: 'icon-cancel',
+        text: 'Cancel',
+        handler: function() {
+        alert('Cancel')
+        }
+    }]">
+
+    </div>
+
+    <div class="easyui-dialog" title="My Dialog" style="width: 300px;height: 400px"
+    data-options="toolbar:'#tool',buttons:'#btn'">
+    new
+    </div>
+
+    <div id="tool">
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true"></a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"></a>
+    </div>
+
+    <div id="btn">
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true"></a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true"></a>
+    </div>
+</body>
+</html>

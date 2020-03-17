@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息框位置</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <p>
+        <a href="#" class="easyui-linkbutton" onclick="topLeft()">topLeft</a>
+        <a href="#" class="easyui-linkbutton" onclick="topCenter()">topCenter</a>
+        <a href="#" class="easyui-linkbutton" onclick="topRight()">topRight</a>
+    </p>
+    <p>
+        <a href="#" class="easyui-linkbutton" onclick="centerLeft()">centerLeft</a>
+        <a href="#" class="easyui-linkbutton" onclick="center()">center</a>
+        <a href="#" class="easyui-linkbutton" onclick="centerRight()">centerRight</a>
+    </p>
+    <p>
+        <a href="#" class="easyui-linkbutton" onclick="bottomLeft()">bottomLeft</a>
+        <a href="#" class="easyui-linkbutton" onclick="bottomCenter()">bottomCenter</a>
+        <a href="#" class="easyui-linkbutton" onclick="bottomRight()">bottomRight</a>
+    </p>
+    <script type="text/javascript">
+        function topLeft() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                style: {
+                    right:"",
+                    left:0,
+                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                    bottom:""
+                }
+            });
+        }
+        function topCenter() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                style: {
+                    right:"",
+                    //left:0,
+                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                    bottom:""
+                }
+            });
+        }
+        function topRight() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                style: {
+                    right:0,
+                    left:"",
+                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                    bottom:""
+                }
+            });
+        }
+        function centerLeft() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                style: {
+                    right:"",
+                    left:0,
+                    //top:document.body.scrollTop+document.documentElement.scrollTop,
+                    bottom:""
+                }
+            });
+        }
+        function center() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                style: {
+                    //right:0,
+                    //left:"",
+                    //top:document.body.scrollTop+document.documentElement.scrollTop,
+                    //bottom:""
+                }
+            });
+        }
+        function centerRight() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                style: {
+                    right:0,
+                    left:"",
+                    //top:document.body.scrollTop+document.documentElement.scrollTop,
+                    bottom:""
+                }
+            });
+        }
+        function bottomLeft() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                style: {
+                    right:"",
+                    left:0,
+                    top:"",
+                    bottom:document.body.scrollTop-document.documentElement.scrollTop
+                }
+            });
+        }
+        function bottomCenter() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                style: {
+                    right:"",
+                    //left:0,
+                    top:"",
+                    bottom:document.body.scrollTop-document.documentElement.scrollTop
+                }
+            });
+        }
+        function bottomRight() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show',
+                // style: {
+                //     right:"",
+                //     left:0,
+                //     top:"",
+                //     bottom:document.body.scrollTop-document.documentElement.scrollTop
+                // }
+            });
+        }
+    </script>
+</body>
+</html>

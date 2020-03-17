@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--加载 properties-->
+    <context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true" />
+    <!--配置数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/ssmeasyui"></property>
+        <property name="username" value="用户名"></property>
+        <property name="password" value="密码"></property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <!--扫描MyBatis所有映射文件-->
+        <property name="mapperLocations" value="classpath:com/easyui/dao/*.xml"></property>
+        <property name="typeAliasesPackage" value="pojo"></property>
+    </bean>
+
+    <!--事务管理器-->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--定义声明式事务管理（面向切面）-->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="add*" isolation="REPEATABLE_READ" rollback-for="Exception"/>
+            <tx:method name="update*" isolation="REPEATABLE_READ" rollback-for="Exception"/>
+            <tx:method name="delete*" isolation="REPEATABLE_READ" rollback-for="Exception"/>
+            <tx:method name="get*" isolation="REPEATABLE_READ" read-only="true"/>
+            <tx:method name="*" isolation="REPEATABLE_READ" propagation="NOT_SUPPORTED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--切入点-->
+    <aop:config>
+        <aop:pointcut id="point" expression="execution(* com.easyui.service..*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="point"/>
+    </aop:config>
+    <context:component-scan base-package="com.easyui.service">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
+    <!--扫描所有的Mybatis的DAO接口，生成代理实现类-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.easyui.dao"/>
+    </bean>
+</beans>

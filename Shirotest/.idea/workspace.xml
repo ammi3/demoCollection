@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cb006368-d628-48d2-9845-b2975367cae7" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="XML.xml" />
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WPfhwNi6ucM42XTte13mwqUXUL" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../springboot" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="http.certificates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Java学习\Java视频\Shirotest\src\main\webapp" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.ShiroiniTest">
+    <configuration name="ShiroMysqlTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.shiro.test.javase.ShiroMysqlTest" />
+      <module name="Shirotest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shiro.test.javase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShiroTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.shiro.test.javase.ShiroTest" />
+      <module name="Shirotest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shiro.test.javase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShiroiniTest" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.shiro.test.javase.ShiroiniTest" />
+      <module name="Shirotest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shiro.test.javase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ShiroMysqlTest" />
+        <item itemvalue="Application.ShiroTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb006368-d628-48d2-9845-b2975367cae7" name="Default Changelist" comment="" />
+      <created>1579056272204</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579056272204</updated>
+      <workItem from="1579056273770" duration="92000" />
+      <workItem from="1579056406693" duration="92000" />
+      <workItem from="1579056527573" duration="382000" />
+      <workItem from="1579056926391" duration="7533000" />
+      <workItem from="1579072440779" duration="4557000" />
+      <workItem from="1579077028296" duration="434000" />
+      <workItem from="1579077476913" duration="2675000" />
+      <workItem from="1579139114736" duration="150000" />
+      <workItem from="1579139364180" duration="43000" />
+      <workItem from="1579140087601" duration="46000" />
+      <workItem from="1579140210944" duration="99000" />
+      <workItem from="1579145846883" duration="1517000" />
+      <workItem from="1579147557983" duration="172000" />
+      <workItem from="1579148249223" duration="5865000" />
+      <workItem from="1579250304102" duration="104000" />
+      <workItem from="1582190168381" duration="34000" />
+      <workItem from="1584428311440" duration="25000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

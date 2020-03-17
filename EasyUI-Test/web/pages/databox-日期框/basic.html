@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期框</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <input class="easyui-datebox" type="text"/>
+    <input id="dd" type="text"/>
+    <script type="text/javascript">
+        $(function () {
+            $("#dd").datebox({
+                required:true,
+                formatter:function (date) {
+                    return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getData();
+                },
+                parser:function (s) {
+                    if(!s) return new Date();
+                    var ss = (s.split("-"));
+                    var y = parseInt(ss[0],10);
+                    var m = parseInt(ss[1],10);
+                    var d = parseInt(ss[2],10);
+                    if(!isNaN(y)&&!isNaN(m)&&isNaN(d)) {
+                        return new Date(y,m-1,d);
+                    } else {
+                        return new Date();
+                    }
+                }
+            });
+            $("#dd").datebox().datebox("calendar").calendar({
+                validator: function (date) {
+                    var now = new Date();
+                    return date > now;
+                }
+            });
+        })
+    </script>
+</body>
+</html>

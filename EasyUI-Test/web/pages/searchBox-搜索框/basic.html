@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索框</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <!--普通输入框-->
+    <input id="input1" class="easyui-searchbox" style="width: 300px" data-options="searcher:doSearch"/>
+    <!--流式输入框-->
+    <!--<input class="easyui-searchbox" style="width: 30%" />-->
+    <script type="text/javascript">
+        function doSearch(value) {
+            alert(value);
+        }
+    </script>
+</body>
+</html>

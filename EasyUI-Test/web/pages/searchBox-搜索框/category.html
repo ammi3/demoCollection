@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索框-带分类</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <input id="input2" class="easyui-searchbox" data-options="menu:'#mm',searcher:doSearch2" style="width: 400px"/>
+    <div id="mm">
+        <div data-options="name:'cat1',iconCls:'icon-ok'">category1</div>
+        <div data-options="name:'cat2',iconCls:'icon-ok'">category2</div>
+    </div>
+    <script type="text/javascript">
+        function doSearch2(value,name) {
+            alert("value"+value+";"+name);
+        }
+    </script>
+</body>
+</html>

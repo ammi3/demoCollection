@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <a href="#" class="easyui-tooltip" title="this is tooltip">hover me</a>
+    <a href="#" id="dd">tooltip test</a>
+    <script type="text/javascript">
+        $(function () {
+            $("#dd").tooltip({
+                position: "right",
+                content: "i am content",
+                onShow: function () {
+                    $(this).tooltip("tip").css({
+                        backgroundColor:"#666",
+                        borderColor:"#666"
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>

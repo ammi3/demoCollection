@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放置-排序</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <style type="text/css">
+        .drag-item {
+            list-style-type: none;
+            display: block;
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin: 2px;
+            width: 300px;
+            background: #fafafa;
+        }
+        .indicator {
+            position: absolute;
+            font-size: 9px;
+            width: 10px;
+            height: 10px;
+            display: none;
+            color: red;
+        }
+    </style>
+    <ul style="margin: 0;padding: 0;margin-left: 10px;">
+        <li class="drag-item">Drag 1</li>
+        <li class="drag-item">Drag 2</li>
+        <li class="drag-item">Drag 3</li>
+        <li class="drag-item">Drag 4</li>
+        <li class="drag-item">Drag 5</li>
+        <li class="drag-item">Drag 6</li>
+    </ul>
+
+    <script type="text/javascript">
+        var indicator = $("<div class='indicator'>&gt;&gt;</div>").appendTo("body");
+        $(function () {
+            $(".drag-item").draggable({
+                revert:true
+            }).droppable({
+                onDragOver: function (e,source) {
+                    indicator.css({
+                        display: "block",
+                        left: $(this).offset().left - 10,
+                        top: $(this).offset().top + $(this).outerHeight() - 5
+                    });
+                },
+                onDragLeave: function (e,source) {
+                    indicator.hide();
+                },
+                onDrop: function (e,source) {
+                    $(source).insertAfter(this);
+                    indicator.hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

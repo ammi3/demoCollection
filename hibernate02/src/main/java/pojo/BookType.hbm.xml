@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="pojo.BookType" table="book_type" schema="hibernate">
+        <id name="typeId">
+            <column name="type_id" sql-type="bigint(20)"/>
+            <!--生成之后需要添加的内容——主键 -->
+            <generator class="identity"></generator>
+        </id>
+        <property name="typeName">
+            <column name="type_name" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="typeDesc">
+            <column name="type_desc" sql-type="varchar(200)" length="200" not-null="true"/>
+        </property>
+        <set name="bookInfosByTypeId" inverse="true">
+            <key>
+                <column name="type_id" not-null="true"/>
+            </key>
+            <!--一对多关系-->
+            <one-to-many not-found="ignore" class="pojo.BookInfo"/>
+        </set>
+    </class>
+</hibernate-mapping>

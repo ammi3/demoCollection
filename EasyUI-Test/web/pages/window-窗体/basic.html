@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>窗口</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <input type="button" value="open" onclick="$('#w').window('open')"/>
+    <input type="button" value="close" onclick="$('#w').window('close')"/>
+    <div class="easyui-panel" style="width: 600px;height: 600px;overflow: hidden;position: relative">
+        <div id="w" class="easyui-window" title="My Title" style="width: 400px;height: 300px"
+        data-options="collapsible:false,inline:true">
+        </div>
+    </div>
+
+    <div class="easyui-window" data-options="iconCls:'icon-save'" style="width: 400px;height: 300px"></div>
+    <div id="tools">
+        <a href="#" class="icon-add" onclick="alert('add')"></a>
+        <a href="#" class="icon-edit" onclick="alert('edit')"></a>
+        <a href="#" class="icon-help " onclick="alert('help')"></a>
+    </div>
+</body>
+</html>

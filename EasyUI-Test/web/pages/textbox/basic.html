@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本框</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <input type="button" value="取值" onclick="$('#tt').textbox('getValue')"/>
+    <input type="button" value="赋值" onclick="$('#tt').textbox('setValue')"/>
+    <br>
+    <input class="easyui-textbox" data-options="prompt:'please input username',validType:'email'"/>
+    <input class="easyui-textbox" data-options="multiline:true" id="tt"/>
+    <input class="easyui-textbox" data-options="icons:[{
+        iconCls:'icon-add',
+        handler:function(e) {
+            alert('add');
+        }
+    },{
+        iconCLs:'icon-remove'
+        handler:function(e) {
+            alert('remove')
+        }
+    }]" style="width: 400px"/>
+    <input class="easyui-textbox" data-options="iconCls:'icon-man',iconWidth:38,prompt:'username'"/>
+    <script type="text/javascript">
+        $(function () {
+            $()
+        })
+    </script>
+</body>
+</html>

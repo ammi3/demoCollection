@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div class="easyui-accordion" data-options="multiple:true" style="width: 500px">
+        <div title="NO1">我是第一个面板</div>
+        <div title="NO2" data-options="icon:'icon-help'">我是第二个面板</div>
+        <div title="NO3" selected="true">我是第三个面板</div>
+    </div>
+
+    <div class="easyui-accordion" data-options="halign:'left',titleDirection:'up'" style="width: 500px;height: 350px">
+        <div title="NO1">我是第一个面板</div>
+        <div title="NO2" data-options="icon:'icon-help'">我是第二个面板</div>
+        <div title="NO3" selected="true">我是第三个面板</div>
+    </div>
+</body>
+</html>

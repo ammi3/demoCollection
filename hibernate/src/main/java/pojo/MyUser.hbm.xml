@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!--类和表的映射-->
+    <class name="pojo.MyUser" table="myuser">
+        <!--必须有主键：对象和行关联，唯一标识-->
+        <id name="id" column="id">
+            <!--主键生成方式-->
+            <!--设置为uuid后id类型需为String，且为自动生成-->
+            <generator class="uuid"></generator>
+        </id>
+
+        <!--属性映射-->
+        <property name="username" column="username"></property>
+        <property name="password" column="password"></property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div id="bar" class="easyui-progressbar" data-options="value:60" style="width: 300px"></div>
+    <input type="button" value="开始" onclick="start()"/>
+    <script type="text/javascript">
+        function start() {
+            var value = $("#bar").progressbar("getValue");
+            $("#bar").progressbar("setValue",value + 5)
+        }
+    </script>
+</body>
+</html>

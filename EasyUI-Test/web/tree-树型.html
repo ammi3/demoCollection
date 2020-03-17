@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>树</title>
+    <link rel="stylesheet" type="text/css" href="EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="EasyUI/themes/icon.css">
+    <script type="text/javascript" src="EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+<ul id="tree">
+    <li><span>菜单1</span></li>
+    <li>
+        <span>菜单2</span>
+        <ul>
+            <li><span>菜单2-1</span></li>
+            <li><span>菜单2-2</span></li>
+        </ul>
+    </li>
+</ul>
+
+<ul class="easyui-tree" checkbox="true">
+    <li><span>菜单3</span></li>
+</ul>
+
+<ul class="easyui-tree" data-options="checkbox:true">
+    <li><span>菜单4</span></li>
+</ul>
+<script type="text/javascript">
+    $(function () {
+        $("#tree").tree({
+            checkbox: true
+        });
+    })
+</script>
+
+</body>
+</html>

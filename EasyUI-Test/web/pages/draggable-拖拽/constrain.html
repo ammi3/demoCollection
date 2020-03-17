@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>约束拖动-限定拖动只能在父容器里面</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div style="height: 300px;width: 300px;border: 1px solid #ccc">
+        <div id="drag04" style="width: 100px;height: 100px;background-color: #cccccc"></div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#drag04").draggable({
+                onDrag: function (e) {
+                    var d = e.data;
+                    if(d.left<d.parent.offsetLeft){
+                        d.left = d.parent.offsetLeft;
+                    } if(d.top<d.parent.offsetTop) {
+                        d.top = d.parent.offsetTop;
+                    } if(d.left+$(d.target).outerWidth()>$(d.parent).outerWidth()+d.parent.offsetLeft) {
+                        d.left = $(d.parent).outerWidth()-$(d.target).outerWidth()+d.parent.offsetLeft;
+                    } if(d.top+$(d.target).outerHeight()>$(d.parent).outerHeight()+d.parent.offsetTop) {
+                        d.top = $(d.parent).outerHeight()-$(d.target).outerHeight()+d.parent.offsetTop;
+                    }
+                }
+            });
+        })
+    </script>
+
+</body>
+</html>

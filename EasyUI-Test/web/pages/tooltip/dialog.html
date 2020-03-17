@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <a id="dd">
+        login
+    </a>
+    <div id="dd-form" style="display: none">
+        <div>username:<input type="text"/></div>
+        <div>password:<input type="password"/></div>
+        <div>登录:<input type="button" value="login"/></div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#dd").tooltip({
+                content:$("#dd-form"),
+                showEvent:"click",
+                onShow: function () {
+                    var t = $(this);
+                    t.tooltip("tip").unbind().bind("mouseenter",function () {
+                        t.tooltip("show");
+                    }).bind("mouseleave",function () {
+                        t.tooltip("hide");
+                    })
+                },
+                onUpdate: function (content) {
+                    content.panel({
+                        width: 300,
+                        title: "login"
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>

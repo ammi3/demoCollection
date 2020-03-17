@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工具栏</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <a href="#" class="easyui-tooltip" data-options="hideEvent:'none',
+    content:function() {
+        return $('#toolbar');
+    },
+    onShow:function() {
+        var t = $(this);
+        t.tooltip('tip').focus().unbind().bind('blur',function() {
+            t.tooltip('hide');
+        })
+    }">toolbar</a>
+    <div style="display: none">
+        <div id="toolbar">
+            <a class="easyui-linkbutton" title="Add" data-options="iconCls:'icon-add',plain:true"></a>
+            <a class="easyui-linkbutton" title="Save" data-options="iconCls:'icon-save',plain:true"></a>
+        </div>
+    </div>
+</body>
+</html>

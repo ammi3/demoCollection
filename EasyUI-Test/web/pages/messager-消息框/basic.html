@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息框</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <a href="#" class="easyui-linkbutton" onclick="show()">Show</a>
+    <a href="#" class="easyui-linkbutton" onclick="slide()">Slide</a>
+    <a href="#" class="easyui-linkbutton" onclick="fade()">Fade</a>
+    <a href="#" class="easyui-linkbutton" onclick="progress()">Progress</a>
+    <script type="text/javascript">
+        function show() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'show'
+            });
+        }
+        function slide() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'slide',
+                timeout: 5000
+            });
+        }
+        function fade() {
+            $.messager.show({
+                title: 'My Title',
+                msg: 'this is message',
+                showType: 'fade'
+            });
+        }
+        function progress() {
+            $.messager.progress({
+                title: 'progress',
+                msg: 'Loading......'
+            });
+            setTimeout(function () {
+                $.messager.progress("close")
+            },3000)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <!--通过标签初始化-->
+    <div class="easyui-draggable" style="width: 300px;height: 300px;border: 1px solid #ccc">
+        可拖拽
+    </div>
+
+    <!--通过Js初始化-->
+    <div id="drag02" style="width: 300px;height: 300px;border: 1px solid #ccc">
+        Js初始化可拖拽
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#drag02").draggable();
+        })
+    </script>
+
+    <div id="drag03" class="easyui-draggable" style="width: 300px;height: 300px;border: 1px solid #ccc" data-options="handle:'#title'">
+        <div id="title" style="background-color: #4b72a4;text-align: center">拖动标题</div>
+    </div>
+
+    <div id="drag04" style="width: 300px;height: 300px;border: 1px solid #ccc">
+        <div id="title1" style="background-color: #4b72a4;text-align: center">Js初始化拖动标题</div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#drag04").draggable({
+                handle: '#title1'
+            });
+        })
+    </script>
+
+</body>
+</html>

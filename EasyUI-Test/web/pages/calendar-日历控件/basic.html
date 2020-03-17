@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历控件</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div class="easyui-calendar" style="width: 180px;height: 180px"></div>
+    <div id="cal"></div>
+    <input type="button" value="日期重定向" onclick="$('#cal').calendar('moveTo',new Date(2015,5,1))"/>
+    <script type="text/javascript">
+        $(function () {
+            $("#cal").calendar({
+                firstDay: 1,
+                onSelect: function (data) {
+                    alert(data.getFullYear()+"-"+(data.getMonth()+1)+"-"+data.getData());
+                }
+            })
+        })
+    </script>
+</body>
+</html>

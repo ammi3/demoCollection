@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="iniRealm" class="org.apache.shiro.realm.text.IniRealm">
+        <constructor-arg name="resourcePath" value="classpath:shiro-web.ini"></constructor-arg>
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!--指定数据源-->
+        <property name="realm" ref="iniRealm"></property>
+    </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"></property>
+        <property name="loginUrl" value="/gologin.html"></property>
+        <property name="successUrl" value="/index.html"></property>
+        <property name="unauthorizedUrl" value="/error.html"></property>
+        <!--定义过滤规则-->
+        <property name="filterChainDefinitions">
+            <value>
+                /login.html=anon
+                /gologin.html=anon
+                /index.html=authc
+                /role.html=authc,roles[admin]
+                /menu/**=authc, roles[admin],perms[menu:*]
+            </value>
+        </property>
+    </bean>
+</beans>

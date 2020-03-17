@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <input type="button" value="添加" onclick="addEast()"/>
+    <input type="button" value="删除" onclick="removeEast()"/>
+    <input type="button" value="收起north" onclick="collapseNorth()"/>
+    <input type="button" value="展开north" onclick="expandNorth()"/>
+    <div id="js-layout" class="easyui-layout" style="height: 300px;width: 60%">
+        <div data-options="region:'north',spilt:true" style="height: 50px">north</div>
+        <div data-options="region:'south',spilt:true" style="height: 50px">south</div>
+        <div data-options="region:'west',title:'West',collapsible:false,spilt:true" style="width: 20%">west</div>
+        <div data-options="region:'center',title:'内容',href:'dynamic.html',spilt:true,
+        tools:[{iconCls:'icon-add',handler:function(){alert('add')}}],footer:'#page'" style="height: 50px"></div>
+    </div>
+
+    <div  id="page" class="easyui-pagination" data-options="total:100,pageList:[10,25,50,100],
+    buttons:[{iconCls:'icon-add',handler:function(){alert('add')}}]"></div>
+
+    <script type="text/javascript">
+        function addEast() {
+            var options={
+                region:'east',
+                width:'100',
+                title:'new east'
+            }
+            $("#js-layout").layout("add",options);
+        }
+        function removeEast() {
+            $("#js-layout").layout("remove",'east');
+        }
+        function collapseNorth() {
+            $("#js-layout").layout("collapse",'north');
+        }
+        function expandNorth() {
+            $("#js-layout").layout("expand",'north');
+        }
+        $(function () {
+            $("#page").pagination({
+                onSelectPage:function (pageNumber,pageSize) {
+                    $(this).pagination('loading');
+                    alert('pageNumber:'+pageNumber+',pageSize:'+pageSize);
+                    $(this).pagination('loaded');
+                    $("#js-layout").layout("panel","center").panel("refresh","dynamic2.html");
+                }
+            })
+        })
+    </script>
+</body>
+</html>

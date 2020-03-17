@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js实现Panel</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <input type="button" value="打开" onclick='$("#panel1").panel("open")'/>
+    <input type="button" value="关闭" onclick='$("#panel1").panel("close")'/>
+    <input type="button" value="展开" onclick='$("#panel1").panel("expand")'/>
+    <input type="button" value="收起" onclick='$("#panel1").panel("collapsed")'/>
+    <div id="panel1"></div>
+    <script type="text/javascript">
+        $(function () {
+            $("#panel1").panel({
+               title:'js-panel',
+               closable:true,
+               width:500,
+               height:500,
+               tools:[{
+                   iconCls:'icon-add',
+                   handler:function () {
+                       alert('add');
+                   }
+               },
+               {
+                   iconCls:'icon-save',
+                   handler:function () {
+                       alert('save');
+                   }
+               },
+               {
+                   iconCls:'icon-reload',
+                   handler:function () {
+                       $("#panel1").panel('refresh',"dynamic2.html");
+                   }
+               }],
+                href:'dynamic.html',
+                onLoad:function () {
+                    alert("load")
+                },
+                onClose:function () {
+                    $("#panel1").panel('destroy')
+                }
+
+            });
+        })
+    </script>
+</body>
+</html>

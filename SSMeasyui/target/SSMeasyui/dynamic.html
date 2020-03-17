@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态绑定树</title>
+    <link rel="stylesheet" type="text/css" href="/EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/EasyUI/themes/icon.css">
+    <script type="text/javascript" src="/EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="/EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <ul id="tree2">
+    
+    </ul>
+    
+    <div id="mm" class="easyui-menu" style="width: 120px">
+        <div onclick="appendNode()" data-options="iconCls:'icon-add'">Append</div>
+        <div onclick="insertNode()" data-options="iconCls:'icon-back'">Insert</div>
+        <div onclick="removeNode()" data-options="iconCls:'icon-remove'">Remove</div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#tree2").tree({
+                checkbox:true,
+                url:"/tree.json",
+                method:"post",
+                /*格式化输出*/
+                formatter: function (node) {
+                    return "["+node.text+"]";
+                },
+                loadFilter: function (data) {
+                    for(var i = 0;i<data.length;i++) {
+                        if(data[i].text == "Item2") {
+                            data[i].iconCls = 'icon-add';
+                        }
+                    }
+                    return data;
+                },
+                /*编辑树*/
+                onClick: function (node) {
+                    $(this).tree("beginEdit",node.target);
+                },
+                /*编辑完树后*/
+                onAfterEdit: function (node) {
+                    alert(node.text);
+                    $.ajax({
+                        url:"/edit_tree.json",
+                        method:"post",
+                        data:{id:node.id,text:node.text,parentid:node.parentid},
+                        success: function (data) {
+                            if(data.status == "true") {
+                                $("#edit-tree").tree("reload");
+                            }
+                        }
+                    })
+                },
+                onContextMenu: function (e,node) {
+                    e.preventDefault();
+                    $(this).tree("select",node.target);
+                    $("#mm").menu("show",{
+                        left:e.pageX,
+                        top:e.pageY
+                    })
+                },
+                /*可拖拽的树*/
+                dnd:true,
+                onDrop:function (target,source,point) {
+                    alert(source.text);
+                    alert($(this).tree("getNode",target).text);
+                }
+            })
+        })
+        var id = 0;
+        function appendNode() {
+            var selected = $("#tree2").tree("getSelected");
+            var node = {
+                parent: selected.target,
+                data:[
+                    {
+                        id: id,
+                        text:''
+                    }
+                ]
+            }
+            $("#tree2").tree("append",node);
+            node = $("#tree2").tree("find",id);
+            $(this).tree("beginEdit",node.target);
+        }
+        function insertNode() {
+            var selected = $("#tree2").tree("getSelected");
+            var node = {
+                id:++id,
+                text:''
+            }
+            $("#tree2").tree("insert",{
+                after:selected.target,
+                data:node
+            });
+            node = $("#tree2").tree("find",id);
+            $(this).tree("beginEdit",node.target);
+        }
+        function removeNode() {
+            var selected = $("#tree2").tree("getSelected");
+            $("#tree2").tree("remove",selected.target);
+        }
+        function alertNode(nodes) {
+            var texts = new Array();
+            $(nodes).each(function (i,node) {
+                texts[i] = node["text"];
+            });
+            alert(texts.join(","))
+        }
+    </script>
+</body>
+</html>

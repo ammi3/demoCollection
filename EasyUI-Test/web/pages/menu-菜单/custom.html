@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div id="mm" class="easyui-menu" style="width: 120px">
+        <div data-options="iconCls:'icon-add'">New</div>
+        <div class="menu-sep"></div>
+        <div>
+            <span>Sub</span>
+            <div>
+                <div><span>sub1</span></div>
+                <div>
+                    <span>sub2</span>
+                    <div>
+                        <div><span>sub2-1</span></div>
+                        <div><span>sub2-2</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $(document).bind("contextmenu",function (e) {
+                e.preventDefault();
+                $("#mm").menu("show",{
+                    left:e.pageX,
+                    top:e.pageY
+                });
+            })
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全屏布局</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body class="easyui-layout">
+    <div data-options="region:'north'" style="height: 50px">north</div>
+    <div data-options="region:'south'" style="height: 50px">south</div>
+    <div data-options="region:'west',title:'West'" style="width: 100px">
+        <div class="easyui-accordion" data-options="multiple:true" style="width: 500px">
+            <div title="NO1">我是第一个面板</div>
+            <div title="NO2" data-options="icon:'icon-help'">我是第二个面板</div>
+            <div title="NO3" selected="true">我是第三个面板</div>
+        </div>
+    </div>
+    <div data-options="region:'east',title:'East',iconCls:'icon-ok'" style="width: 100px">east</div>
+    <div data-options="region:'center',title:'内容'">
+        <div class="easyui-layout" fit="true">
+            <div data-options="region:'west',title:'West',split:true" style="width: 20%">west</div>
+            <div data-options="region:'east',title:'East',iconCls:'icon-ok',split:true" style="width: 20%">east</div>
+            <div data-options="region:'center',title:'内容',href:'dynamic.html',split:true">内容</div>
+        </div>
+    </div>
+</body>
+</html>

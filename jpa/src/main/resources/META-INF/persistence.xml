@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <!-- transaction-type：指定 JPA  的事务处理策略。
+         RESOURCE_LOCAL：默认值，数据库级别的事务，只能针对一种数据库，不支持分布式事务。
+                      如果需要支持分布式事务，使用JTA：transaction-type="JTA"
+         name 属性用于定义持久化单元的名字, 必选			 
+     -->
+    <persistence-unit name="jpa-2" transaction-type="RESOURCE_LOCAL">
+    <!--指定JPA的实现厂商-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!--注册实体-->
+        <class>pojo.MyComputer</class>
+        <class>pojo.BookType</class>
+        <class>pojo.BookInfo</class>
+
+        <!--属性 主要有数据源和对应的扩展属性-->
+        <properties>
+            <!--数据源-->
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"></property>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hibernate?autoReconnect=true&amp;useSSL=true&amp;characterEncoding=UTF8"></property>
+            <property name="hibernate.connection.username" value="用户名"></property>
+            <property name="hibernate.connection.password" value="密码"></property>
+
+            <!--扩展属性 必须指向数据库的方言-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"></property>
+            <!--自动创建表-->
+            <property name="hbm2ddl.auto" value="update"></property>
+            <!--显示SQL-->
+            <property name="hibernate.show_sql" value="true"></property>
+            <property name="hibernate.format_sql" value="true"></property>
+
+        </properties>
+
+    </persistence-unit>
+</persistence>

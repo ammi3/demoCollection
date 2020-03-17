@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提示消息框</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <a href="#" class="easyui-linkbutton" onclick="myalert()">alert</a>
+    <a href="#" class="easyui-linkbutton" onclick="myconfirm()">confirm</a>
+    <a href="#" class="easyui-linkbutton" onclick="myprompt()">prompt</a>
+    <script type="text/javascript">
+        function myalert() {
+            $.messager.alert("title","content","error")
+        }
+        function myconfirm() {
+            $.messager.confirm("title","content",function (r) {
+                alert(r);
+            })
+        }
+        function myprompt() {
+            $.messager.prompt("title","content",function (r) {
+                alert(r);
+            })
+        }
+    </script>
+</body>
+</html>

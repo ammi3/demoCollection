@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div class="easyui-tabs" style="width: 300px;height: 300px" data-options="tools:[{
+    iconCls:'icon-add',
+    handler:function(){
+    alert('add')
+    }
+    },{
+    iconCls:'icon-remove',
+    handler:function(){
+    alert('remove')
+    }
+    }]">
+        <div title="tab1" data-options="tools:[{
+    iconCls:'icon-mini-add',
+    handler:function(){
+    alert('add')
+    }
+    }]">选项卡1</div>
+        <div title="tab2">选项卡2</div>
+        <div title="<img src='../../EasyUI/themes/icons/lock.png' style='margin-top:5px'>">选项卡3</div>
+    </div>
+
+</body>
+</html>

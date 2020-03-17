@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="pojo.BookInfo" table="book_info" schema="hibernate">
+        <id name="bookId">
+            <column name="book_id" sql-type="bigint(20)"/>
+            <!--生成之后需要添加的内容——主键 -->
+            <generator class="identity"></generator>
+        </id>
+        <property name="bookName">
+            <column name="book_name" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="bookAuthor">
+            <column name="book_author" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="bookPrice">
+            <column name="book_price" sql-type="double" precision="-1" not-null="true"/>
+        </property>
+        <property name="bookDate">
+            <column name="book_date" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="bookPublish">
+            <column name="book_publish" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="bookDesc">
+            <column name="book_desc" sql-type="varchar(200)" length="200" not-null="true"/>
+        </property>
+        <!--多对一关系-->
+        <many-to-one name="bookTypeByTypeId" class="pojo.BookType">
+            <column name="type_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

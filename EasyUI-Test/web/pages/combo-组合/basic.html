@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组合</title>
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../EasyUI/themes/icon.css">
+    <script type="text/javascript" src="../../EasyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="../../EasyUI/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div>
+        <input id="cc" style="width: 150px"/>
+    </div>
+    <div id="sp">
+        <input type="radio" name="lang" value="01"/><span>java</span><br/>
+        <input type="radio" name="lang" value="02"/><span>python</span><br/>
+        <input type="radio" name="lang" value="03"/><span>php</span><br/>
+        <input type="radio" name="lang" value="04"/><span>c#</span><br/>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#cc").combo({
+                required: true,
+                editable: false
+            });
+            $("#sp").appendTo($("#cc").combo("panel"));
+            $("#sp input").click(function () {
+                var v = $(this).val();
+                var s = $(this).next("span").text();
+                $("#cc").combo("setValue",v).combo("setText",s).panel("hide");
+            })
+        })
+
+    </script>
+</body>
+</html>
