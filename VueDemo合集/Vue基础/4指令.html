@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        .active {
+            color: red;
+        }
+        .line {
+            border: 1px solid royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--Mustache语法-->
+        <h4>{{message}}</h4>
+        <!--v-once指令-->
+        <h4 v-once>{{message}}</h4>
+        <!--v-html指令-->
+        <h4 v-html="url"></h4>
+        <!--v-text指令-->
+        <h4 v-text="message"></h4>
+        <!--v-pre指令-->
+        <h4 v-pre>{{message}}</h4>
+        <!--v-cloak指令-->
+        <h4 v-cloak>{{message}}</h4>
+        <!--v-bind指令-->
+        <img :src="imgUrl" alt="" style="width: 30%;height: 30%;">
+        <a :href="aHref">百度一下</a>
+        <h2 :class="{active: isActive, line: isLine}">{{message}}</h2>
+        <h2 :class="getClass()">{{message}}</h2>
+        <button @click="btnClick">改变颜色</button>
+    </div>
+    
+
+    <script src="../js/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                url: '<a href="http://www.baidu.com">百度一下</a>',
+                imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584512465954&di=79bd151a8b524a3d5c03e2e71ffcdf60&imgtype=0&src=http%3A%2F%2Ft9.baidu.com%2Fit%2Fu%3D1307125826%2C3433407105%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D5760%26h%3D3240',
+                aHref: 'http://www.baidu.com',
+                isActive: true,
+                isLine: true
+            },
+            methods: {
+                btnClick: function() {
+                    this.isActive = !this.isActive;
+                },
+                getClass: function() {
+                    return {active: this.isActive, line: this.isLine};
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>图片切换</title>
+  <link rel="stylesheet" href="static/图片切换/css/index.css" />
+</head>
+
+<body>
+  <div id="mask">
+    <div class="center">
+      <h2 class="title">
+        <!-- <img src="vue快速入门package/04-源代码/demo-图片切换/images/logo.png" alt=""> -->
+        深圳创维校区环境
+      </h2>
+      <!-- 图片 -->
+      <img :src="imgList[index]" alt="" />
+      <!-- 左箭头 -->
+      <a href="javascript:void(0)" @click="prev"  v-show="index>0" class="left">
+          <img src="static/图片切换/images/prev.png" alt="" />
+        </a>
+      <!-- 右箭头 -->
+      <a href="javascript:void(0)" @click="next" v-show="index<imgList.length-1" class="right">
+        <img src="static/图片切换/images/next.png" alt="" />
+      </a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: "#mask",
+    data: {
+      imgList: [
+            "static/图片切换/images/00.jpg",
+            "static/图片切换/images/01.jpg",
+            "static/图片切换/images/02.jpg",
+            "static/图片切换/images/03.jpg",
+            "static/图片切换/images/04.jpg",
+            "static/图片切换/images/05.jpg",
+            "static/图片切换/images/06.jpg",
+            "static/图片切换/images/07.jpg",
+            "static/图片切换/images/08.jpg",
+            "static/图片切换/images/09.jpg",
+            "static/图片切换/images/10.jpg",
+          ],
+      index: 0
+    },
+    methods: {
+      // 上一张
+      prev: function() {
+        this.index--;
+      },
+      // 下一张
+      next: function() {
+        this.index++;
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>

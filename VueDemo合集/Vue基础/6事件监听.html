@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件监听</title>
+</head>
+<body>
+    <div id="app">
+      <!--参数问题-->
+      <button @click="btnClick">按钮1</button>
+      <button @click="btnClick2(123,$event)">按钮2</button>
+      <!--修饰符-->
+      <!---stop修饰符-->
+      <div @click="divClick">aaa
+        <button @click.stop="btnClick">按钮3</button>
+      </div>
+      <br>
+
+      <!--.prevent修饰符-->
+      <form action="baidu">
+        <input type="submit" value="提交" @click.prevent="submitClick">
+      </form>
+      <br>
+
+      <!--监听键盘的事件-->
+      <input type="text" @keyup.enter="keyUp">
+      <br>
+
+      <!--once修饰符-->
+      <button @click.once="btn2Click">按钮</button>
+    </div>
+    
+
+    <script src="../js/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊'
+            },
+            methods: {
+              btnClick() {
+                console.log("------------");
+              },
+              btnClick2(abc,event) {
+                console.log("+++++",abc,event);
+              },
+              divClick() {
+                console.log("divClick");
+              },
+              submitClick() {
+                console.log("submitClick");
+              },
+              keyUp() {
+                console.log("keyUp")
+              },
+              btn2Click(){
+                console.log("once");
+              }
+            }
+        })
+    </script>
+</body>
+</html>

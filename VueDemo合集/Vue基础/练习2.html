@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习2</title>
+</head>
+<body>
+    <div id="app">
+      <span v-if="isUser">
+        <label for="username">用户账户</label>
+        <input type="text" id="username" placeholder="请输入用户账号">
+      </span>
+      <span v-else>
+        <label for="useremail">用户邮箱</label>
+        <input type="text" id="useremail" placeholder="请输入用户邮箱">
+      </span>
+      <button @click="isUser = !isUser">切换类型</button>
+    </div>
+    
+
+    <script src="../js/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                isUser: true
+            }
+        })
+    </script>
+</body>
+</html>
