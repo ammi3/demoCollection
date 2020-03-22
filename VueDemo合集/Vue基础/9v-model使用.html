@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="message">{{message}}
+    <br>
+
+    <!--结合radio-->
+    <label for="male">
+      <input type="radio" id="male" value="男" v-model="sex">男
+    </label>
+    <label for="female">
+      <input type="radio" id="female" value="女" v-model="sex">女
+    </label>
+    <h2>选择的性别是:{{sex}}</h2>
+    <br>
+
+    <!--结合checkbox-->
+    <label for="agree">
+      <input type="checkbox" id="agdree" v-model="isAgree">同意协议
+    </label>
+    <h2>你的选择是:{{isAgree}}</h2>
+    <button :disabled="!isAgree">按钮</button>
+    <br>
+
+    <label for="agree">
+      <input type="checkbox" value="篮球" v-model="hobies">篮球
+      <input type="checkbox" value="羽毛球" v-model="hobies">羽毛球
+      <input type="checkbox" value="乒乓球" v-model="hobies">乒乓球
+      <input type="checkbox" value="足球" v-model="hobies">足球
+    </label>
+    <h2>你的选择是:{{hobies}}</h2>
+    <br>
+
+    <!--结合select-->
+    <select name="abc" id="" v-model="fruit" multiple>
+      <option value="苹果">苹果</option>
+      <option value="香蕉">香蕉</option>
+      <option value="榴莲">榴莲</option>
+      <option value="葡萄">葡萄</option>
+    </select>
+    <h2>你选择的水果是：{{fruit}}</h2>
+    <br>
+
+    <!--修饰符-lazy-->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+
+    <!--修饰符number-->
+    <input type="number" v-model.number="age">
+    <h2>类型：{{typeof age}}</h2>
+
+    <!--修饰符trim-->
+    <input type="text" v-model.trim="name">
+    <h2>你的名字{{name}}</h2>
+  </div>
+
+
+
+
+
+  <script src="../js/vue.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        sex: '',
+        isAgree: false,
+        hobies: [],
+        fruit: '香蕉',
+        message1: 'aime',
+        age: 0,
+        name: ''
+      }
+    })
+  </script>
+</body>
+
+</html>

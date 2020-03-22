@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习1</title>
+    <style>
+        .color {
+            color: red;
+        }
+    </style>
+</head>
+<!--作业需求: 点击列表中的哪一项, 那么该项的文字变成红色-->
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in movies" :class="{color: currentIndex == index}" @click="getIndex(index)">{{index}} {{item}}</li>
+        </ul>
+    </div>
+
+    <script src="../../../js/vue.min.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: "大爷",
+                movies: ['星际穿越',"大话西游","少年班"],
+                isColor: false,
+                currentIndex: 0
+            },
+            methods: {
+                getIndex: function(index) {
+                    this.currentIndex = index;
+                    console.log(index);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

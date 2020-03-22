@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>组件之间的访问</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <cpn></cpn>
+    <!-- <cpn ref="aaa"></cpn> -->
+    <!-- <button @click="btnClick">按钮</button> -->
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2>我是父组件</h2>
+      <div>
+        <ccpn></ccpn>
+      </div>
+    </div>
+  </template>
+
+  <template id="ccpn">
+    <div>
+      <div>我是子组件</div>
+      <button @click="comBtnClick">按钮</button>
+    </div>
+  </template>
+
+  <script src="../js/vue.min.js"></script>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊'
+      },
+      methods: {
+        btnClick() {
+          // 1.$children
+          // console.log(this.$children);
+          // for (let c of this.$children) {
+          //   console.log(c.name);
+          //   c.showMessage();
+          // }
+          // console.log(this.$children[3].name);
+
+          // 2.$refs => 对象类型, 默认是一个空的对象 ref='bbb'
+          console.log(this.$refs.aaa.name);
+        }
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              name: '我是子组件的name'
+            }
+          },
+          methods: {
+            showMessage() {
+              console.log('showMessage');
+            }
+          },
+          components: {
+            ccpn: {
+              template: '#ccpn',
+              methods: {
+                comBtnClick() {
+                  // 访问父组件和根组件
+                  console.log(this.$parent);
+                  console.log(this.$root);
+                }
+              }
+            }
+          }
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

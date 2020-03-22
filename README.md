@@ -1,4 +1,4 @@
-### `Java`，`Vue`，`easyUI`平时练习的Demo
+### 练习的Demo
 
 #### 1：`EasyUI-test`：easyui中各个组件
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件插槽</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn>
+      <button slot="left">按钮</button>
+    </cpn>
+    <cpn>
+      <i slot="right">嘻嘻嘻</i>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <slot name="left"></slot>
+      <h2>我是标题</h2>
+      <p>哈哈哈哈</p>
+      <!--预备插槽-->
+      <slot name="right"></slot>
+    </div>
+  </template>
+
+
+  <script src="../js/vue.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊'
+      },
+      components: {
+        cpn: {
+          template: '#cpn'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

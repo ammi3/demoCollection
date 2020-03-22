@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环遍历</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+          <li v-for="item in letters">{{item}}</li>
+        </ul>
+        <button @click="btnClick">按钮</button>
+    </div>
+    
+
+    <script src="../js/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                letters: ['a','b','c','d']
+            },
+            methods: {
+              btnClick() {
+                // push方法
+                //this.letters.push('aaa');
+                // pop方法-删除数组最后一个元素
+                //this.letters.pop();
+                //shift-删除数组第一个元素
+                //this.letters.shift();
+                // unshift-在数组最前面添加元素
+                //this.letters.unshift('aa');
+                //spile
+                //this.letters.spile();
+                //set(要修改的对象，索引，修改后的值)
+                Vue.set(this.letters,0,'bbbbbb');
+              }
+            }
+        })
+    </script>
+</body>
+</html>

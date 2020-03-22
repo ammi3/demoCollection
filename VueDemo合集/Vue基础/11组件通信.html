@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件通信-父传子</title>
+</head>
+
+<body>
+  <div id="app">
+    <!--父组件传递信息给子组件-->
+    <cpn :cmovies="movies"></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <ul>
+        <li v-for="item in cmovies">{{item}}</li>
+      </ul>
+      <div>{{cmovies}}</div>
+    </div>
+  </template>
+
+  <script src="../js/vue.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊',
+        movies: ['海王', '海泽王']
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          props: ['cmovies']
+        },
+        cpn2: {
+
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
