@@ -25,3 +25,5 @@
 #### 12：`VueDemo入门`：入门Vue的xiaoDemo
 
 #### 13：`VueDemo合集`：学习Vue阶段Demo合集
+
+#### 14：School：学校校庆微信小程序
