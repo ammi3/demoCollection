@@ -1,0 +1,51 @@
+<!--pages/share.wxml-->
+<view class="page">
+  <view class="weui-msg">
+    <view class="weui-msg__icon-area">
+      <icon type="success" size="64"></icon>
+    </view>
+    <view class="weui-msg__text-area">
+      <view class="weui-msg__title">操作成功</view>
+      <view class="weui-msg__desc">生成的头像已经保存到相册
+      </view>
+    </view>
+    <view class="weui-msg__opr-area">
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" open-type="share">分享小程序</button>
+        <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+            <button class="weui-btn">点击生成海报</button>
+        </poster>
+      </view>
+    </view>
+    <!-- <view class="weui-msg__tips-area">
+      <view class="weui-msg__tips">
+        校庆：
+      </view>
+      <view class="weui-msg__tips">
+        啦啦啦啦啦
+      </view>
+      <view class="weui-msg__tips">
+        啊哈哈哈哈哈
+      </view>
+      <view class="weui-msg__tips">
+        嘿嘿黑嘿嘿
+      </view>
+      <view class="weui-msg__tips">
+        嘻嘻嘻嘻嘻
+      </view>
+      <view class="weui-msg__tips">
+        嘻嘻嘻嘻嘻
+      </view>
+    </view> -->
+
+    <view class="weui-msg__extra-area">
+      <view class="weui-footer">
+        <view class="weui-footer__text">遇到问题请+v
+          <navigator class="weui-msg__link">Yingjie4dd</navigator>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+

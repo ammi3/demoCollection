@@ -1,0 +1,5 @@
+/* pages/share/share.wxss */
+
+button {
+  margin: 10px 20px 0px 20px;
+}
