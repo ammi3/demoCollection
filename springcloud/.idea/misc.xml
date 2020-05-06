@@ -10,6 +10,9 @@
         <option value="$PROJECT_DIR$/springcloud-web-admin-ribbon/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-web-admin-feign/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-config/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-zipkin/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-admin/pom.xml" />
       </list>
     </option>
   </component>

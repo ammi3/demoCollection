@@ -1,7 +1,10 @@
 spring:
   application:
     name: springcloud-service-web-ribbon
-
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
 
 
 server:

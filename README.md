@@ -16,7 +16,9 @@
 
 #### 8：`springboot-swagger`：springboot整合swagger2
 
-#### 9：`springcloud`：springCloud
+#### 9：`springcloud`
+
+​	`eureka`，`feign`，`ribbon`，`zuul`，`config云配置`，`zipkin`，`springboot-admin`
 
 #### 10：`SSMdemo`：spring,springMvc,mybatis整合
 
@@ -27,3 +29,5 @@
 #### 13：`VueDemo合集`：学习Vue阶段Demo合集
 
 #### 14：School：学校校庆微信小程序
+
+#### 15：Vue小项目

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: springcloud-admin
+
+server:
+  port: 8084
+
+management:
+  endpoint:
+    health:
+      show-components: always
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info"]
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

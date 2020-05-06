@@ -4,6 +4,7 @@ spring:
     name: springcloud-service-admin
 
 
+
 server:
   port: 8763
 
