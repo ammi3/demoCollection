@@ -27,7 +27,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool</artifactId>
+            <artifactId>commons-pool2</artifactId>
         </dependency>
 
         <dependency>
@@ -52,6 +52,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
 
     <dependencyManagement>
